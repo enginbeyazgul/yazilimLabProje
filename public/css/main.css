@@ -1,0 +1,157 @@
+@import url(https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap);
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Chakra Petch", sans-serif;
+  transition: all 0.4s ease-out;
+}
+
+footer, .navigation div, .navigation, .column, .row {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.container {
+  position: relative;
+  height: auto;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.row {
+  margin-bottom: 16px;
+}
+.row input[type=submit] {
+  margin-top: 25px;
+  width: 140px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 18px;
+  background-color: #1E9D4C;
+  color: aliceblue;
+  border: none;
+}
+.row input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #31bf65;
+}
+.row input[type=text] {
+  border: 1px solid #aaa;
+  background-color: transparent;
+  border-radius: 18px 4px 18px 4px;
+  font-size: 17px;
+  width: 250px;
+  padding: 8px;
+  outline: none;
+  text-align: center;
+}
+.row input[type=text]:focus {
+  border: #1E9D4C 1px solid;
+}
+.row label input:checked + .ilk .son {
+  left: 20px;
+}
+.row label input:checked + .ilk {
+  background-color: #69ce8e;
+}
+.row label input {
+  position: absolute;
+  left: -9999px;
+}
+.row label .ilk {
+  cursor: pointer;
+  position: relative;
+  top: 10px;
+  width: 36px;
+  height: 14px;
+  background-color: #e1e1e1;
+  display: inline-block;
+  border-radius: 18px;
+  transition: 400ms background;
+}
+.row label .beni {
+  font-size: 14px;
+  position: relative;
+  left: 3px;
+  top: 7px;
+  cursor: pointer;
+}
+.row label .son {
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #1E9D4C;
+  transition: 400ms left;
+}
+.row .logo {
+  width: 150px;
+  margin-top: -20px;
+}
+.row .font-15 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 3px;
+  padding-top: 10px;
+  text-decoration: none;
+  color: black;
+}
+.row .font-15:hover {
+  color: #69ce8e;
+  cursor: pointer;
+}
+
+.row a {
+  margin-left: 25px !important;
+}
+
+.row label {
+  margin-left: -25px !important;
+}
+
+.column {
+  height: 90vh;
+  flex-direction: column;
+}
+
+.navigation {
+  position: fixed;
+  bottom: -2px;
+  width: 100%;
+}
+.navigation div {
+  width: 250px;
+}
+.navigation div a {
+  border-radius: 12px 12px 0 0;
+  margin: 25px;
+  background-color: #1E9D4C;
+  padding: 8px;
+  color: aliceblue;
+  text-decoration: none;
+}
+.navigation div a:hover {
+  border-radius: 12px 12px 0 0;
+  background-color: #31bf65;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+footer p {
+  color: aliceblue;
+  border-radius: 6px 6px 0 0;
+  width: 250px;
+  padding: 5px 0 3px 0;
+  font-size: 12px;
+  background-color: #1E9D4C;
+}
