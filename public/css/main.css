@@ -9,6 +9,29 @@
 footer, .navigation div, .navigation, .column, .row {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.navigation div a, .file-input-a, .row input[type=submit] {
+  background-color: #1E9D4C;
+  color: aliceblue;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+}
+.navigation div a:hover, .file-input-a:hover, .row input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #31bf65;
+}
+
+.row select, .row input[type=date], .row input[type=text] {
+  border: 1px solid #aaa;
+  background-color: transparent;
+  border-radius: 18px 4px 18px 4px;
+  font-size: 17px;
+  outline: none;
+  text-align: center;
 }
 
 body {
@@ -22,32 +45,23 @@ body {
   flex-wrap: wrap;
 }
 
-.row {
-  margin-bottom: 16px;
-}
 .row input[type=submit] {
   margin-top: 25px;
   width: 140px;
   padding: 10px;
-  border-radius: 4px;
   font-size: 18px;
-  background-color: #1E9D4C;
-  color: aliceblue;
-  border: none;
-}
-.row input[type=submit]:hover {
-  cursor: pointer;
-  background-color: #31bf65;
 }
 .row input[type=text] {
-  border: 1px solid #aaa;
-  background-color: transparent;
-  border-radius: 18px 4px 18px 4px;
-  font-size: 17px;
   width: 250px;
   padding: 8px;
-  outline: none;
-  text-align: center;
+}
+.row input[type=date] {
+  width: 250px;
+  padding: 7px;
+}
+.row select {
+  width: 270px;
+  padding: 7px;
 }
 .row input[type=text]:focus {
   border: #1E9D4C 1px solid;
@@ -118,32 +132,37 @@ body {
 .column {
   height: 90vh;
   flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-input-a {
+  padding: 7px;
+  font-size: 13px;
+  margin: 5px 0 5px 70px;
 }
 
 .navigation {
   position: fixed;
-  bottom: -2px;
+  bottom: 20px;
   width: 100%;
 }
 .navigation div {
   width: 250px;
 }
 .navigation div a {
-  border-radius: 12px 12px 0 0;
   margin: 25px;
-  background-color: #1E9D4C;
   padding: 8px;
-  color: aliceblue;
-  text-decoration: none;
-}
-.navigation div a:hover {
-  border-radius: 12px 12px 0 0;
-  background-color: #31bf65;
 }
 
 footer {
   position: fixed;
-  bottom: 0;
+  bottom: -16px;
   width: 100%;
   text-align: center;
 }

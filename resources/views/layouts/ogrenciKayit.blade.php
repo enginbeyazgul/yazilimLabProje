@@ -2,22 +2,61 @@
 @section('body')
     <div class="container">
         <div class="column">
-            <div class="row"><img class="logo" src="{{asset('public/img/logo.png')}}" alt="Kou-logo"></div>
-            <div class="row"><h3>Kayıt Ol</h3></div>
-            <form action="{{route('ogrenciKayit')}}" method="post">
-                <div class="row"><input placeholder="İsim" type="text"></div>
-                <div class="row"><input placeholder="Mail" type="text"></div>
-                <div class="row"><input placeholder="Şifre" type="text"></div>
-                <div class="row"><input value="Kayıt Ol" type="submit"></div>
+            <div class="row"><h2>Kayıt Ol</h2></div>
+            <form action="{{route('ogrencikayitet')}}" method="post">
+                @csrf
+                <div class="row">
+                    <img id="blah" width="80px" src="{{asset('img/avatar.png')}}" alt="önizleme">
+                    <label>
+                        <input id="imgInp" class="file-input" name="resim" type="file">
+                        <span class="file-input-a">Resim Yükle!</span>
+                    </label>
+                </div>
+                <div class="row"><input name="dogumtarihi" placeholder="Doğum Tarihiniz" type="date"></div>
+                <div class="row"><input name="ad" placeholder="Ad" type="text"></div>
+                <div class="row"><input name="soyad" placeholder="Soyad" type="text"></div>
+                <div class="row"><input name="okulno" placeholder="Okul Numarası" type="text"></div>
+                <div class="row"><input name="telno" placeholder="Telefon Numarası" type="text"></div>
+                <div class="row"><input name="tc" placeholder="TC Kimlik Numarası" type="text"></div>
+                <div class="row"><input name="mail" placeholder="Mail" type="text"></div>
+                <div class="row"><input name="adres" placeholder="Adres" type="text"></div>
+                <div class="row">
+                    <select name="sınıf" id="">
+                        <option value="" selected disabled hidden>Sınıf</option>
+                        <option value="Hazırlık">Hazırlık</option>
+                        <option value="1. Sınıf">1. Sınıf</option>
+                        <option value="2. Sınıf">2. Sınıf</option>
+                        <option value="3. Sınıf">3. Sınıf</option>
+                        <option value="4. Sınıf">4. Sınıf</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <select name="fakulte" id="fakulte">
+                        <option value="" selected disabled hidden>Fakülte</option>
+                        @foreach ($faculties as $document)
+                            <option
+                                {{isset($hiddenf) && ($hiddenf == $document->id()) ? 'selected': false}} value="{{$document->id()}}">{{$document->id()}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="row">
+                    <select name="bolum" id="branch">
+                        <option value="" selected disabled hidden>Bolüm</option>
+                        @foreach ($faculties as $document)
+                            @foreach($document->data() as $branchs)
+                                @if($document->id() == "Egitim Fakultesi")
+                                    <option value="{{$branchs}}">{{$branchs}}</option>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </select>
+                </div>
+                <div class="row"><input name="sifre" placeholder="Şifre" type="text"></div>
+                <div class="row"><input style="margin-bottom: 50px" value="Kayıt Ol" type="submit"></div>
+                <input class="hiddeninput" type="hidden">
             </form>
         </div>
     </div>
-    <nav class="navigation">
-        <div>
-            <a href="ogrenci">Öğrenci</a>
-            <a href="admin">Admin</a>
-        </div>
-    </nav>
     <footer>
         <p>Kocaeli Üniversitesi E-Başvuru Sistemi</p>
     </footer>
@@ -37,31 +76,18 @@
             measurementId: "{{config('services.firebase.measurementId')}}"
         };
         firebase.initializeApp(config);
-        var facebookProvider = new firebase.auth.FacebookAuthProvider();
-        var googleProvider = new firebase.auth.GoogleAuthProvider();
-        var facebookCallbackLink = '/login/facebook/callback';
-        var googleCallbackLink = '/login/google/callback';
-        async function socialSignin(provider) {
-            var socialProvider = null;
-            if (provider == "facebook") {
-                socialProvider = facebookProvider;
-                document.getElementById('social-login-form').action = facebookCallbackLink;
-            } else if (provider == "google") {
-                socialProvider = googleProvider;
-                document.getElementById('social-login-form').action = googleCallbackLink;
-            } else {
-                return;
-            }
-            firebase.auth().signInWithPopup(socialProvider).then(function(result) {
-                result.user.getIdToken().then(function(result) {
-                    document.getElementById('social-login-tokenId').value = result;
-                    document.getElementById('social-login-form').submit();
-                });
-            }).catch(function(error) {
-                // do error handling
-                console.log(error);
-            });
-        }
     </script>
-
+    <script>
+        $(document).ready(function () {
+            $('#fakulte').val('').change(function () {
+                var faculty = $(this).val();
+            });
+            imgInp.onchange = evt => {
+                const [file] = imgInp.files
+                if (file) {
+                    blah.src = URL.createObjectURL(file)
+                }
+            }
+        });
+    </script>
 @endsection
