@@ -10,7 +10,8 @@ class AppController extends Controller
 
     }
     public function index(){
-        $data['title'] = "Kou-Web Öğrenci";
+        $data['title'] = "Kou-Web | Öğrenci";
         return view('layouts.ogrenciGiris',$data);
     }
+
 }

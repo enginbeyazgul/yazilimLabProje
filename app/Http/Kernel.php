@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RegisterControl;
+use App\Http\Middleware\StudentControl;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,5 +65,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'studentcontrol' => StudentControl::class,
+        'registercontrol' => RegisterControl::class,
+        'firebase' =>\App\Http\Middleware\Firebase::class,
     ];
 }

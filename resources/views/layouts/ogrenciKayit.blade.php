@@ -3,23 +3,26 @@
     <div class="container">
         <div class="column">
             <div class="row"><h2>Kayıt Ol</h2></div>
-            <form action="{{route('ogrencikayitet')}}" method="post">
+            @if($errors->any())
+                <div class="error-info"><i class="fas fa-exclamation-circle"></i>&nbsp;&nbsp;{{$errors->first()}}</div>
+            @endif
+            <form action="{{route('ogrencikayitet')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <img id="blah" width="80px" src="{{asset('img/avatar.png')}}" alt="önizleme">
                     <label>
-                        <input id="imgInp" class="file-input" name="resim" type="file">
+                        <input id="imgInp" class="file-input" name="resim" value="{{ old('resim') }}" type="file">
                         <span class="file-input-a">Resim Yükle!</span>
                     </label>
                 </div>
-                <div class="row"><input name="dogumtarihi" placeholder="Doğum Tarihiniz" type="date"></div>
-                <div class="row"><input name="ad" placeholder="Ad" type="text"></div>
-                <div class="row"><input name="soyad" placeholder="Soyad" type="text"></div>
-                <div class="row"><input name="okulno" placeholder="Okul Numarası" type="text"></div>
-                <div class="row"><input name="telno" placeholder="Telefon Numarası" type="text"></div>
-                <div class="row"><input name="tc" placeholder="TC Kimlik Numarası" type="text"></div>
-                <div class="row"><input name="mail" placeholder="Mail" type="text"></div>
-                <div class="row"><input name="adres" placeholder="Adres" type="text"></div>
+                <div class="row"><input name="dogumtarihi" value="{{ old('dogumtarihi') }}" placeholder="Doğum Tarihiniz" type="date"></div>
+                <div class="row"><input name="ad" value="{{ old('ad') }}" placeholder="Ad" type="text"></div>
+                <div class="row"><input name="soyad" value="{{ old('soyad') }}" placeholder="Soyad" type="text"></div>
+                <div class="row"><input name="okulno" value="{{ old('okulno') }}" placeholder="Okul Numarası" type="text"></div>
+                <div class="row"><input name="telno" value="{{ old('telno') }}" placeholder="Telefon Numarası" type="text"></div>
+                <div class="row"><input name="tc" value="{{ old('tc') }}" placeholder="TC Kimlik Numarası" type="text"></div>
+                <div class="row"><input name="mail" value="{{ old('mail') }}" placeholder="Mail" type="text"></div>
+                <div class="row"><input name="adres" value="{{ old('adres') }}" placeholder="Adres" type="text"></div>
                 <div class="row">
                     <select name="sınıf" id="">
                         <option value="" selected disabled hidden>Sınıf</option>
@@ -42,13 +45,13 @@
                 <div class="row">
                     <select name="bolum" id="branch">
                         <option value="" selected disabled hidden>Bolüm</option>
-                        @foreach ($faculties as $document)
+                        {{--@foreach ($faculties as $document)
                             @foreach($document->data() as $branchs)
-                                @if($document->id() == "Egitim Fakultesi")
+                                @if($document->id() != "")
                                     <option value="{{$branchs}}">{{$branchs}}</option>
                                 @endif
                             @endforeach
-                        @endforeach
+                        @endforeach--}}
                     </select>
                 </div>
                 <div class="row"><input name="sifre" placeholder="Şifre" type="text"></div>
@@ -57,37 +60,39 @@
             </form>
         </div>
     </div>
-    <footer>
-        <p>Kocaeli Üniversitesi E-Başvuru Sistemi</p>
-    </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // Initialize Firebase
-        var firebaseConfig = {
-            apiKey: "{{config('services.firebase.apiKey')}}",
-            authDomain: "{{config('services.firebase.authDomain')}}",
-            projectId: "{{config('services.firebase.projectId')}}",
-            storageBucket: "{{config('services.firebase.storageBucket')}}",
-            messagingSenderId: "{{config('services.firebase.storageBucket')}}",
-            appId: "{{config('services.firebase.appId')}}",
-            measurementId: "{{config('services.firebase.measurementId')}}"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#fakulte').val('').change(function () {
-                var faculty = $(this).val();
-            });
-            imgInp.onchange = evt => {
-                const [file] = imgInp.files
-                if (file) {
-                    blah.src = URL.createObjectURL(file)
-                }
+        //resim avatar için
+        imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
             }
+        }
+        $(document).ready(function () {
+
+
+            $('#fakulte').val('').change(function selectedFaculty() {
+                var faculty = $(this).val();
+                var docRef = db.collection("Faculties").doc(faculty);//firestore fakülteler
+                $('#branch').find('option').remove();
+                docRef.get().then((doc) => {
+                    if (doc.exists) {
+                        console.log("Document data:", doc.data()[0]);
+                        $.each(doc.data(), function (i, item) {
+                            $('#branch').append($('<option>', {
+                                value: item,
+                                text : item
+                            }));
+                        });
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+
+            });
         });
     </script>
 @endsection

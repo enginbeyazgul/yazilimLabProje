@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap);
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -43,6 +44,68 @@ body {
   height: auto;
   margin: auto;
   flex-wrap: wrap;
+}
+
+.containerr {
+  position: relative;
+  height: auto;
+  left: 300px;
+  width: calc(100% - 300px);
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  flex-direction: column;
+  position: relative;
+  flex-wrap: wrap;
+  height: 100vh;
+  float: left;
+  background-color: #3C3F41;
+  border-right: 1px #ddd solid;
+}
+.sidebar img {
+  margin-top: 20px;
+}
+.sidebar #ul1::before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f055     Başvuru Yap";
+  color: aliceblue;
+  top: -24px;
+  left: 30px;
+  font-size: 14px;
+  position: absolute;
+  padding: 3px;
+}
+.sidebar #ul2::before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f15c     Başvurularım";
+  color: aliceblue;
+  top: -24px;
+  left: 30px;
+  font-size: 14px;
+  position: absolute;
+  padding: 3px;
+}
+.sidebar ul {
+  border-top: 1px solid #ddd;
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+  list-style: none;
+}
+.sidebar ul li a {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: aliceblue;
+}
+.sidebar ul li a:hover {
+  background-color: #1E9D4C;
 }
 
 .row input[type=submit] {
@@ -135,6 +198,18 @@ body {
   justify-content: flex-start;
   margin-top: 50px;
 }
+.column .error-info {
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  min-height: 35px;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  background-color: #FFF3CD;
+}
 
 .file-input {
   position: absolute;
@@ -149,7 +224,7 @@ body {
 
 .navigation {
   position: fixed;
-  bottom: 20px;
+  bottom: 0;
   width: 100%;
 }
 .navigation div {

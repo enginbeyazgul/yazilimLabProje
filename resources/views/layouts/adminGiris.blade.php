@@ -26,7 +26,4 @@
         <a href="{{route('admin')}}">Admin</a>
     </div>
 </nav>
-<footer>
-    <p>Kocaeli Üniversitesi E-Başvuru Sistemi</p>
-</footer>
 @endsection

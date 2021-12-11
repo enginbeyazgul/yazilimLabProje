@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+
 $beyaz: aliceblue;
 $koyuyesil: #14823c;
 $yesil: #1E9D4C;
@@ -6,33 +7,40 @@ $acikyesil: #31bf65;
 $cokacikyesil: #69ce8e;
 $lavivert: #3e4f71;
 $mavi: #516289;
-@media only screen and (max-width: 1080px){
+$info: #FFF3CD;
+$gri: #3C3F41;
+@media only screen and (max-width: 1080px) {
 
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
     font-family: 'Chakra Petch', sans-serif;
     transition: all 0.4s ease-out;
 }
+
 %flex-c {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
 }
-%yesil-btn{
+
+%yesil-btn {
     background-color: $yesil;
     color: $beyaz;
     border-radius: 4px;
     border: none;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: $acikyesil;
     }
 }
-%input{
+
+%input {
     border: 1px solid #aaa;
     background-color: transparent;
     border-radius: 18px 4px 18px 4px;
@@ -41,54 +49,127 @@ $mavi: #516289;
     text-align: center;
 
 }
-body{
+
+body {
     background-color: $beyaz;
 }
-.container{
+
+.container {
     position: relative;
     height: auto;
     margin: auto;
     flex-wrap: wrap;
+
 }
-.row{
+.containerr {
+    position: relative;
+    height: auto;
+    left: 300px;
+    width: calc(100% - 300px);
+    flex-wrap: wrap;
+}
+.sidebar{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: wrap;
+    height: 100vh;
+    float: left;
+    background-color: $gri;
+    border-right: 1px #ddd solid;
+    img{
+        margin-top: 20px;
+    }
+    #ul1::before{
+        font-family: "Font Awesome 5 Pro";
+        content: '\f055     Başvuru Yap';
+        color: $beyaz;
+        top: -24px;
+        left: 30px;
+        font-size: 14px;
+        position: absolute;
+        padding: 3px;
+    }
+    #ul2::before{
+        font-family: "Font Awesome 5 Pro";
+        content: '\f15c     Başvurularım';
+        color: $beyaz;
+        top: -24px;
+        left: 30px;
+        font-size: 14px;
+        position: absolute;
+        padding: 3px;
+    }
+    ul{
+        border-top: 1px solid #ddd;
+        margin-top: 30px;
+        position: relative;
+        width: 100%;
+        list-style: none;
+        li{
+            a{
+                display: flex;
+                padding: 10px;
+                justify-content: center;
+                text-align: center;
+                text-decoration: none;
+                color: $beyaz;
+                &:hover{
+                    background-color: $yesil;
+                }
+            }
+        }
+    }
+}
+
+.row {
     @extend %flex-c;
-    input[type="submit"]{
+
+    input[type="submit"] {
         margin-top: 25px;
         width: 140px;
         padding: 10px;
         font-size: 18px;
         @extend %yesil-btn;
     }
-    input[type="text"]{
+
+    input[type="text"] {
         @extend %input;
         width: 250px;
         padding: 8px;
     }
-    input[type="date"]{
+
+    input[type="date"] {
         @extend %input;
         width: 250px;
         padding: 7px;
     }
-    select{
+
+    select {
         @extend %input;
         width: 270px;
         padding: 7px;
     }
-    input[type="text"]:focus{
+
+    input[type="text"]:focus {
         border: $yesil 1px solid;
     }
-    label input:checked + .ilk .son
-    {
+
+    label input:checked + .ilk .son {
         left: 20px;
     }
-    label input:checked + .ilk
-    {
+
+    label input:checked + .ilk {
         background-color: $cokacikyesil
     }
+
     label input {
         position: absolute;
         left: -9999px;
     }
+
     label .ilk {
         cursor: pointer;
         position: relative;
@@ -100,6 +181,7 @@ body{
         border-radius: 18px;
         transition: 400ms background;
     }
+
     label .beni {
         font-size: 14px;
         position: relative;
@@ -107,6 +189,7 @@ body{
         top: 7px;
         cursor: pointer;
     }
+
     label .son {
         position: absolute;
         left: 0;
@@ -117,11 +200,13 @@ body{
         background-color: $yesil;
         transition: 400ms left;
     }
-    .logo{
+
+    .logo {
         width: 150px;
         margin-top: -20px;
     }
-    .font-15{
+
+    .font-15 {
         font-size: 13px;
         font-weight: bold;
         margin-left: 3px;
@@ -129,56 +214,80 @@ body{
         text-decoration: none;
         color: black;
     }
-    .font-15:hover{
+
+    .font-15:hover {
         color: $cokacikyesil;
         cursor: pointer;
     }
 }
-.row a{
-    margin-left: 25px!important;
+
+.row a {
+    margin-left: 25px !important;
 }
-.row label{
-    margin-left: -25px!important;
+
+.row label {
+    margin-left: -25px !important;
 }
-.column{
+
+.column {
     @extend %flex-c;
     height: 90vh;
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 50px;
+
+    .error-info {
+        display: flex;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+        width: 280px;
+        min-height: 35px;
+        color: #856404;
+        border: 1px solid #ffeeba;
+        background-color: $info;
+    }
 }
+
 .file-input {
     position: absolute;
     left: -9999px;
 }
+
 .file-input-a {
     @extend %yesil-btn;
     padding: 7px;
     font-size: 13px;
     margin: 5px 0 5px 70px;
 }
-.navigation{
+
+.navigation {
     @extend %flex-c;
     position: fixed;
-    bottom: 20px;
+    bottom: 0;
     width: 100%;
-    div{
+
+    div {
         @extend %flex-c;
         width: 250px;
-        a{
+
+        a {
             @extend %yesil-btn;
             margin: 25px;
             padding: 8px;
         }
     }
 }
-footer{
+
+footer {
     @extend %flex-c;
     position: fixed;
     bottom: -16px;
     width: 100%;
     text-align: center;
-    p{
+
+    p {
         color: $beyaz;
         border-radius: 6px 6px 0 0;
         width: 250px;
