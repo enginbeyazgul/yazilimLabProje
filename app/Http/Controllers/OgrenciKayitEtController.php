@@ -46,6 +46,7 @@ class OgrenciKayitEtController extends Controller
             //firebase firestore
             $stuRef = app('firebase.firestore')->database()->collection('Users')->Document($newUser->uid);
             $stuRef->set([
+                'imageURL' => 'url',
                 'isStudent' => '1',
                 'strAddress' => $request->adres,
                 'strBirthday' => $request->dogumtarihi,

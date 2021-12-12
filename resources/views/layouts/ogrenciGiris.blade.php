@@ -21,7 +21,7 @@
             </label>
             <a href="{{route('ogrencikayit')}}" class="font-15">Kayıt Ol</a><span class="font-15">&nbsp;/&nbsp;</span><span class="font-15">Şifremi Unuttum</span>
         </div>
-        <div class="row"><input  type="submit"></div>
+        <div class="row"><input value="Giriş"  type="submit"></div>
         </form>
     </div>
 </div>

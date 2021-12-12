@@ -73,9 +73,9 @@ body {
     align-items: center;
     width: 300px;
     flex-direction: column;
-    position: relative;
+    position: fixed;
     flex-wrap: wrap;
-    height: 100vh;
+    min-height: 100vh;
     float: left;
     background-color: $gri;
     border-right: 1px #ddd solid;
@@ -137,19 +137,19 @@ body {
 
     input[type="text"] {
         @extend %input;
-        width: 250px;
+        width: 300px;
         padding: 8px;
     }
 
     input[type="date"] {
         @extend %input;
-        width: 250px;
+        width: 300px;
         padding: 7px;
     }
 
     select {
         @extend %input;
-        width: 270px;
+        width: 320px;
         padding: 7px;
     }
 
@@ -225,8 +225,14 @@ body {
     margin-left: 25px !important;
 }
 
-.row label {
-    margin-left: -25px !important;
+
+.columnn {
+    position: relative;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .column {
@@ -255,6 +261,12 @@ body {
     left: -9999px;
 }
 
+.file-input-aa{
+    @extend %yesil-btn;
+    display: flex;
+    padding: 10px;
+    font-size: 14px;
+}
 .file-input-a {
     @extend %yesil-btn;
     padding: 7px;

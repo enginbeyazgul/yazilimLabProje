@@ -10,7 +10,7 @@
                 @csrf
                 <div class="row">
                     <img id="blah" width="80px" src="{{asset('img/avatar.png')}}" alt="önizleme">
-                    <label>
+                    <label style="margin-left: -25px;">
                         <input id="imgInp" class="file-input" name="resim" value="{{ old('resim') }}" type="file">
                         <span class="file-input-a">Resim Yükle!</span>
                     </label>
