@@ -7,7 +7,7 @@
             @if($errors->any())
                 <div class="error-info"><i class="fas fa-exclamation-circle"></i>&nbsp;&nbsp;{{$errors->first()}}</div>
             @endif
-            <form action="{{route('ogrencikayitet')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('ogrencimain/dgs')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row"><h4>Gerekli Belgeler</h4></div>
                 <div class="row">

@@ -2,8 +2,13 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CapControl;
+use App\Http\Middleware\DgsControl;
+use App\Http\Middleware\IntibakControl;
 use App\Http\Middleware\RegisterControl;
 use App\Http\Middleware\StudentControl;
+use App\Http\Middleware\YatayGecisControl;
+use App\Http\Middleware\YazOkuluControl;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,6 +72,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'studentcontrol' => StudentControl::class,
         'registercontrol' => RegisterControl::class,
+        'yazokulucontrol' => YazOkuluControl::class,
+        'yataygeciscontrol' => YatayGecisControl::class,
+        'dgscontrol' => DgsControl::class,
+        'capcontrol' => CapControl::class,
+        'intibakcontrol' => IntibakControl::class,
         'firebase' =>\App\Http\Middleware\Firebase::class,
     ];
 }

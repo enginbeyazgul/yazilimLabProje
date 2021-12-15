@@ -10,7 +10,12 @@ $mavi: #516289;
 $info: #FFF3CD;
 $gri: #3C3F41;
 @media only screen and (max-width: 1080px) {
-
+    .sidebar{
+        left: -300px;
+    }
+    .hamburger{
+        top: 30px!important;
+    }
 }
 
 * {
@@ -68,6 +73,28 @@ body {
     width: calc(100% - 300px);
     flex-wrap: wrap;
 }
+.hamburger{
+    display: flex;
+    z-index: 999;
+    position: absolute;
+    border-radius: 7px;
+    top: -50px;
+    left: 40px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    color: $beyaz;
+    justify-content: center;
+    align-items: center;
+    background-color: $gri;
+    &:hover{
+        background-color: $mavi;
+        cursor: pointer;
+    }
+}
+.ders, .ders2, .ders3, .ders4{
+    display: none;
+}
 .sidebar{
     display: flex;
     align-items: center;
@@ -82,7 +109,7 @@ body {
     img{
         margin-top: 20px;
     }
-    #ul1::before{
+    #ul1:before{
         font-family: "Font Awesome 5 Pro";
         content: '\f055     Başvuru Yap';
         color: $beyaz;
@@ -219,6 +246,28 @@ body {
         color: $cokacikyesil;
         cursor: pointer;
     }
+    .basvuru{
+        display: flex;
+        width: 550px;
+        padding: 0 25px 0 25px;
+        border: 1px solid #ddd;
+        box-shadow: 3px 1px 10px #ddd;
+        height: 55px;
+        align-items: center;
+        border-radius: 7px;
+        justify-content: space-between;
+        div{
+            display: flex;
+            justify-content: center;
+            min-width: 80px;
+            span:first-child{
+                background-color: $lavivert;
+                &:hover{
+                    background-color: $mavi;
+                }
+            }
+        }
+    }
 }
 
 .row a {
@@ -242,20 +291,21 @@ body {
     justify-content: flex-start;
     margin-top: 50px;
 
-    .error-info {
-        display: flex;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        justify-content: center;
-        align-items: center;
-        width: 280px;
-        min-height: 35px;
-        color: #856404;
-        border: 1px solid #ffeeba;
-        background-color: $info;
-    }
-}
 
+}
+.error-info {
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    min-height: 35px;
+    font-size: 14px;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    background-color: $info;
+}
 .file-input {
     position: absolute;
     left: -9999px;

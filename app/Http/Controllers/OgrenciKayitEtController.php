@@ -24,7 +24,7 @@ class OgrenciKayitEtController extends Controller
         //firebase storage img
         $image = $request->file('resim'); //image file from frontend
         $student   = app('firebase.firestore')->database()->collection('Users')->document($request->okulno.'_'.$request->ad);
-        $firebase_storage_path = 'img/';
+        $firebase_storage_path = 'picture/';
         $name     = $student->id();
         $localfolder = public_path('firebase-temp-uploads') .'/';
         $extension = 'jpg';

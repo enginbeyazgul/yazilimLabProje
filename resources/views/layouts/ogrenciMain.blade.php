@@ -18,6 +18,7 @@
     <title>{{$title}}</title>
 </head>
 <body>
+<div class="hamburger"><i class="fas fa-bars"></i></div>
 <div class="sidebar">
     <img width="100px" src="{{ asset('img/logo.png') }}" alt="">
     <ul id="ul1">
@@ -37,6 +38,16 @@
 @yield('container')
 
 <script>
+    $('.hamburger').click(function (){
+        if($(this).children().attr('class') == 'fas fa-bars'){
+            $(this).children().attr('class','fas fa-times');
+            $('.sidebar').css('left','0');
+        }
+        else {
+            $(this).children().attr('class','fas fa-bars');
+            $('.sidebar').css('left','-300px');
+        }
+    });
     //firebase firestore
     firebase.initializeApp({
         apiKey: 'AIzaSyDtCmNFvNVBaT2A3G6g08rUH2bhnhitUG0',

@@ -17,3 +17,8 @@ Route::get('/ogrencimain/onaylanan', [\App\Http\Controllers\BasvuruDurumControll
 Route::get('/ogrencimain/reddedilen', [\App\Http\Controllers\BasvuruDurumController::class, 'reddedilen'])->name('ogrencimain/reddedilen');
 Route::post('/ogrencimain', [\App\Http\Controllers\OgrenciMainController::class,'ogrenciControl'])->name('ogrencimain');
 Route::post('/ogrencikayitet', [\App\Http\Controllers\OgrenciKayitEtController::class, 'ogrenciKayitEt'])->middleware('registercontrol')->name('ogrencikayitet');
+Route::post('/ogrencimain/yazokulu', [\App\Http\Controllers\YazOkuluController::class, 'yazOkuluBasvuru'])->middleware('yazokulucontrol')->name('ogrencimain/yazokulu');
+Route::post('/ogrencimain/yataygecis', [\App\Http\Controllers\YatayGecisController::class, 'yatayGecisBasvuru'])->middleware('yataygeciscontrol')->name('ogrencimain/yataygecis');
+Route::post('/ogrencimain/dgs', [\App\Http\Controllers\DgsController::class, 'dgsBasvuru'])->middleware('dgscontrol')->name('ogrencimain/dgs');
+Route::post('/ogrencimain/cap', [\App\Http\Controllers\CapController::class, 'capBasvuru'])->middleware('capcontrol')->name('ogrencimain/cap');
+Route::post('/ogrencimain/intibak', [\App\Http\Controllers\IntibakController::class, 'intibakBasvuru'])->middleware('intibakcontrol')->name('ogrencimain/intibak');

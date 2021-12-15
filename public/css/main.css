@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap);
 @charset "UTF-8";
+@media only screen and (max-width: 1080px) {
+  .sidebar {
+    left: -300px;
+  }
+
+  .hamburger {
+    top: 30px !important;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -54,6 +63,30 @@ body {
   flex-wrap: wrap;
 }
 
+.hamburger {
+  display: flex;
+  z-index: 999;
+  position: absolute;
+  border-radius: 7px;
+  top: -50px;
+  left: 40px;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  background-color: #3C3F41;
+}
+.hamburger:hover {
+  background-color: #516289;
+  cursor: pointer;
+}
+
+.ders, .ders2, .ders3, .ders4 {
+  display: none;
+}
+
 .sidebar {
   display: flex;
   align-items: center;
@@ -69,7 +102,7 @@ body {
 .sidebar img {
   margin-top: 20px;
 }
-.sidebar #ul1::before {
+.sidebar #ul1:before {
   font-family: "Font Awesome 5 Pro";
   content: "\f055     Başvuru Yap";
   color: aliceblue;
@@ -183,6 +216,28 @@ body {
   color: #69ce8e;
   cursor: pointer;
 }
+.row .basvuru {
+  display: flex;
+  width: 550px;
+  padding: 0 25px 0 25px;
+  border: 1px solid #ddd;
+  box-shadow: 3px 1px 10px #ddd;
+  height: 55px;
+  align-items: center;
+  border-radius: 7px;
+  justify-content: space-between;
+}
+.row .basvuru div {
+  display: flex;
+  justify-content: center;
+  min-width: 80px;
+}
+.row .basvuru div span:first-child {
+  background-color: #3e4f71;
+}
+.row .basvuru div span:first-child:hover {
+  background-color: #516289;
+}
 
 .row a {
   margin-left: 25px !important;
@@ -203,14 +258,16 @@ body {
   justify-content: flex-start;
   margin-top: 50px;
 }
-.column .error-info {
+
+.error-info {
   display: flex;
   border-radius: 10px;
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
-  width: 280px;
+  width: 300px;
   min-height: 35px;
+  font-size: 14px;
   color: #856404;
   border: 1px solid #ffeeba;
   background-color: #FFF3CD;
