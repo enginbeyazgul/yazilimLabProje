@@ -56,6 +56,7 @@ class OgrenciKayitEtController extends Controller
                 'strInfoClass' => $request->sınıf,
                 'strNumber' => $request->okulno,
                 'strLastName' => $request->soyad,
+                'strName' => $request->ad,
                 'strMail' => $request->mail,
                 'strPassword' => $request->sifre,
                 'strPhone' => $request->telno,

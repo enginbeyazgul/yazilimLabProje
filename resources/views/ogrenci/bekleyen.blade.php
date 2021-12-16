@@ -1,6 +1,5 @@
 @extends('layouts.ogrenciMain')
 @section('container')
-
     <div class="containerr">
         <div class="columnn">
             <div class="row"><h2>Bekleyen Başvurularım</h2></div>
