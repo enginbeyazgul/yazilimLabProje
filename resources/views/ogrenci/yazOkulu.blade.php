@@ -8,8 +8,8 @@
             @endif
             <form action="{{route('ogrencimain/yazokulu')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="row"><input name="danismanadsoyad" value="{{ old('danismanadsoyad') }}" placeholder="Ad" type="text"></div>
-                <div class="row"><input name="universite" value="{{ old('universite') }}" placeholder="Soyad" type="text"></div>
+                <div class="row"><input name="danismanadsoyad" value="{{ old('danismanadsoyad') }}" placeholder="Danışman Ad Soyad" type="text"></div>
+                <div class="row"><input name="universite" value="{{ old('universite') }}" placeholder="Üniversite Adı" type="text"></div>
                 <div class="row"><input name="baslangic" value="{{ old('baslangic') }}" onfocus="(this.type='date')" placeholder="Yaz Okulu Başlangıç" type="text"></div>
                 <div class="row"><input name="bitis" value="{{ old('bitis') }}" onfocus="(this.type='date')" placeholder="Yaz Okulu Bitiş" type="text"></div>
                 <div class="row"><h4>Yaz Okulunda Alınacak Dersler</h4></div>

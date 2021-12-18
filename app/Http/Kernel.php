@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'studentcontrol' => StudentControl::class,
+        'admincontrol' => AdminControl::class,
         'registercontrol' => RegisterControl::class,
         'yazokulucontrol' => YazOkuluControl::class,
         'yataygeciscontrol' => YatayGecisControl::class,

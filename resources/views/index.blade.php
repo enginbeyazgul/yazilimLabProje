@@ -25,9 +25,11 @@
     firebase.initializeApp({
         apiKey: 'AIzaSyDtCmNFvNVBaT2A3G6g08rUH2bhnhitUG0',
         authDomain: 'yazilimlab-49317.firebaseapp.com',
-        projectId: 'yazilimlab-49317'
+        projectId: 'yazilimlab-49317',
+        storageBucket: 'gs://yazilimlab-49317.appspot.com'
     });
     var db = firebase.firestore();
+    var storage = firebase.storage();
 </script>
 {{-- js file --}}
 <script src="{{asset('js/script.js?t='.time())}}" ></script>

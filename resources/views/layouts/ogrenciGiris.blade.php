@@ -19,7 +19,7 @@
                 </span>
                 <span class="beni">Beni hatırla!</span>
             </label>
-            <a href="{{route('ogrencikayit')}}" class="font-15">Kayıt Ol</a><span class="font-15">&nbsp;/&nbsp;</span><span class="font-15">Şifremi Unuttum</span>
+            <a href="{{route('ogrencikayit')}}" class="font-15">Kayıt Ol</a><span style="margin-right: -20px" class="font-15">&nbsp;/&nbsp;</span><a href="{{route('resetpassword')}}" class="font-15"> Şifremi Unuttum</a>
         </div>
         <div class="row"><input value="Giriş"  type="submit"></div>
         </form>

@@ -13,7 +13,7 @@
                     <div>{{$elem->data()["date"]}}</div><div>{{$elem->data()["type"]}}</div><div>İmza Bekleniyor</div>
                     <div>
                         <span style="font-size: 18px;margin:5px; padding: 7px 12px" class="file-input-aa"><i class="fas fa-file-upload"></i></span>
-                        <span style="font-size: 18px;margin:5px; padding: 7px 12px" class="file-input-aa"><i class="fas fa-file-download"></i></span>
+                        <span style="font-size: 18px;margin:5px; padding: 7px 12px" id="indirdilekce" class="file-input-aa"><i class="fas fa-file-download"></i></span>
                     </div>
                 </div>
 
@@ -21,4 +21,5 @@
             @endforeach
         </div>
     </div>
+
 @endsection

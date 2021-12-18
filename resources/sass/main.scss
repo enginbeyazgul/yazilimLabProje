@@ -229,8 +229,8 @@ body {
     }
 
     .logo {
-        width: 150px;
-        margin-top: -20px;
+        width: 120px;
+        margin-top: -15px;
     }
 
     .font-15 {
@@ -261,9 +261,21 @@ body {
             justify-content: center;
             min-width: 80px;
             span:first-child{
-                background-color: $lavivert;
+                background-color: $yesil;
                 &:hover{
-                    background-color: $mavi;
+                    background-color: $acikyesil !important;
+                }
+            }
+            span:nth-child(2){
+                background-color: #d0143a;
+                &:hover{
+                    background-color: #f52a51 !important;
+                }
+            }
+            span:last-child{
+                background-color: #f1c12f;
+                &:hover{
+                    background-color: #fadc4d !important;
                 }
             }
         }

@@ -4,9 +4,13 @@
     <div class="column">
         <div class="row"><img class="logo" src="{{asset('img/logo.png')}}" alt="Kou-logo"></div>
         <div class="row"><h3>Admin Giriş</h3></div>
-        <form action="" method="post">
-            <div class="row"><input placeholder="Mail" type="text"></div>
-            <div class="row"><input placeholder="Şifre" type="text"></div>
+        @if($errors->any())
+            <div class="error-info"><i class="fas fa-exclamation-circle"></i>&nbsp;&nbsp;{{$errors->first()}}</div>
+        @endif
+        <form action="{{route('adminmain')}}" method="post">
+            @csrf
+            <div class="row"><input name="adminmail" placeholder="Mail" type="text"></div>
+            <div class="row"><input name="adminsifre" placeholder="Şifre" type="text"></div>
             <div class="row">
                 <label class="checkbox">
                     <input type="checkbox">
@@ -16,7 +20,7 @@
                     <span class="beni">Beni hatırla!</span>
                 </label>
             </div>
-            <div class="row"><input type="submit"></div>
+            <div class="row"><input value="Giriş" type="submit"></div>
         </form>
     </div>
 </div>
@@ -26,4 +30,5 @@
         <a href="{{route('admin')}}">Admin</a>
     </div>
 </nav>
+
 @endsection

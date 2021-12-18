@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Kreait\Firebase\Factory;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Kreait\Firebase\Auth as FirebaseAuth;
 use Kreait\Firebase\Auth\SignInResult\SignInResult;
-use Kreait\Firebase\Exception\FirebaseException;
-use Kreait\Firebase\Auth;
 
 class OgrenciMainController extends Controller
 {
@@ -51,6 +47,7 @@ class OgrenciMainController extends Controller
                     Session::put('faculty',$user->data()["strFaculty"]);
                     Session::put('class',$user->data()["strInfoClass"]);
                     Session::put('name',$user->data()["strName"]);
+                    Session::put('student',$user->data()['isStudent']);
                     Session::put('lastname',$user->data()["strLastName"]);
                     Session::put('address',$user->data()["strAddress"]);
                     Session::put('tc',$user->data()["strIdentity"]);
@@ -60,7 +57,7 @@ class OgrenciMainController extends Controller
                     Session::save();
                 }
             }
-            if (Session::get('studentId')) {
+            if (Session::get('student')) {
                 return redirect('ogrencimain/yazokulu');
             }
             //dd($signInResult); öğrenci bilgileri görüntüle

@@ -2,7 +2,7 @@
 @section('container')
     <div class="containerr">
         <div class="columnn">
-            <div class="row"><h2>Yaz Okulu Başvuru</h2></div>
+            <div class="row"><h2>Yatay Geçiş Başvuru</h2></div>
             @if($errors->any())
                 <div class="error-info"><i class="fas fa-exclamation-circle"></i>&nbsp;&nbsp;{{$errors->first()}}</div>
             @endif

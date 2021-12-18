@@ -201,8 +201,8 @@ body {
   transition: 400ms left;
 }
 .row .logo {
-  width: 150px;
-  margin-top: -20px;
+  width: 120px;
+  margin-top: -15px;
 }
 .row .font-15 {
   font-size: 13px;
@@ -233,10 +233,22 @@ body {
   min-width: 80px;
 }
 .row .basvuru div span:first-child {
-  background-color: #3e4f71;
+  background-color: #1E9D4C;
 }
 .row .basvuru div span:first-child:hover {
-  background-color: #516289;
+  background-color: #31bf65 !important;
+}
+.row .basvuru div span:nth-child(2) {
+  background-color: #d0143a;
+}
+.row .basvuru div span:nth-child(2):hover {
+  background-color: #f52a51 !important;
+}
+.row .basvuru div span:last-child {
+  background-color: #f1c12f;
+}
+.row .basvuru div span:last-child:hover {
+  background-color: #fadc4d !important;
 }
 
 .row a {
